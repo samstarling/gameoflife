@@ -1,15 +1,10 @@
 class GameOfLife
   
-  def initialize
-    @size = 5
-    @grid = [
-      [0,0,0,0,0],
-      [0,1,0,0,0],
-      [0,1,0,1,0],
-      [0,1,1,0,0],
-      [0,0,0,0,0],
-    ]
-    render
+  attr_accessor :grid
+  
+  def initialize(grid, size)
+    @size = size
+    @grid = grid
   end
   
   def tick
@@ -68,8 +63,17 @@ class GameOfLife
   
 end
 
-game = GameOfLife.new
-loop do
-  game.tick
-  game.render
+if __FILE__ == $0
+  grid = [
+    [0,0,0,0,0],
+    [0,1,0,0,0],
+    [0,1,0,1,0],
+    [0,1,1,0,0],
+    [0,0,0,0,0],
+  ]
+  game = GameOfLife.new(grid, 5)
+  loop do
+    game.render
+    game.tick
+  end
 end
