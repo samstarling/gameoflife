@@ -3,7 +3,7 @@ require "./gameoflife.rb"
  
 class GameOfLifeTest < Test::Unit::TestCase
  
-  def test_simple
+  def a_single_cell_should_die
     grid = [
       [0,0,0],
       [0,1,0],
